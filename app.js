@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Book = require('./model/book');
+const ejs  = require('ejs');
 const app = express();
+
+app.use(express.urlencoded({extended:true}));
 
 mongoose.connect('mongodb://localhost:27017/Lab_data')
     .then(()=>console.log("DB connected"))
@@ -17,7 +20,9 @@ app.get('/books/new',(req,res)=>{
 })
 
 app.post('/book',(req,res)=>{
-    const {title,author,genre}=req.body
+    const {Title,Author,genre}=req.body
+    
+    
 })
 
 app.get('/book/:id',(req,res)=>{
